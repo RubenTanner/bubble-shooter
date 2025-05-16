@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble Shooter</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="game-header">
+        <h1>Bubble Shooter</h1>
+        <div class="score-container">Score: <span id="score">0</span></div>
+        <button id="restart-btn">Restart Game</button>
+      </div>
+      <canvas id="gameCanvas"></canvas>
+      <div class="controls-info">
+        Move mouse to aim • Click to shoot • Match 3+ bubbles of the same color
+      </div>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
