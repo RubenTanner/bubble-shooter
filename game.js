@@ -425,6 +425,72 @@ function drawBackgroundGrid() {
   ctx.restore();
 }
 
+function drawAimLine() {
+  //find the cannon angle
+  const cannonX = canvas.width / 2;
+  const cannonY = canvas.height - CANNON_HEIGHT;
+
+  // Calculate the direction vector for the aim line
+  let dirX = Math.sin(cannonAngle);
+  let dirY = -Math.cos(cannonAngle);
+
+  // Start from the cannon position
+  let startX = cannonX;
+  let startY = cannonY;
+
+  // Set a maximum number of bounces to avoid infinite loops
+  let maxBounces = 3;
+  let bounces = 0;
+
+  // Store the points for the aim line
+  let points = [{ x: startX, y: startY }];
+
+  while (bounces < maxBounces) {
+    // Calculate intersection with left and right walls
+    let tLeft = dirX < 0 ? (0 - startX) / dirX : Infinity;
+    let tRight = dirX > 0 ? (canvas.width - startX) / dirX : Infinity;
+    let tTop = dirY < 0 ? (0 - startY) / dirY : Infinity;
+
+    // Find the nearest intersection
+    let t = Math.min(tLeft, tRight, tTop);
+
+    // Calculate intersection point
+    let hitX = startX + dirX * t;
+    let hitY = startY + dirY * t;
+
+    points.push({ x: hitX, y: hitY });
+
+    // If hit the top, stop
+    if (t === tTop) break;
+
+    // If hit left or right wall, reflect direction and continue
+    if (t === tLeft || t === tRight) {
+      dirX = -dirX;
+      startX = hitX;
+      startY = hitY;
+      bounces++;
+    } else {
+      break;
+    }
+  }
+
+  // Draw the aim line using the calculated points
+  ctx.save();
+  ctx.strokeStyle = "#FFFF";
+  ctx.lineWidth = 2;
+  ctx.setLineDash([8, 8]);
+  ctx.beginPath();
+  ctx.moveTo(points[0].x, points[0].y);
+  for (let i = 1; i < points.length; i++) {
+    ctx.lineTo(points[i].x, points[i].y);
+  }
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.restore();
+
+  ctx.save();
+}
+
 // Draw a bubble
 function drawBubble(bubble) {
   ctx.beginPath();
