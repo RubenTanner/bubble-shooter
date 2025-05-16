@@ -72,7 +72,7 @@ function initBubbleGrid() {
           x: offsetX + col * bubbleSpacing + rowOffset,
           y: GRID_TOP_MARGIN + row * bubbleSpacing,
           radius: BUBBLE_RADIUS,
-          color: COLOURS[Math.floor(Math.random() * COLOURS.length)],
+          colour: COLOURS[Math.floor(Math.random() * COLOURS.length)],
           row: row,
           col: col,
         };
@@ -88,7 +88,7 @@ function createShooterBubble() {
     x: canvas.width / 2,
     y: canvas.height - CANNON_HEIGHT - BUBBLE_RADIUS,
     radius: BUBBLE_RADIUS,
-    color: COLOURS[Math.floor(Math.random() * COLOURS.length)],
+    colour: COLOURS[Math.floor(Math.random() * COLOURS.length)],
     velocityX: 0,
     velocityY: 0,
     moving: false,
@@ -98,7 +98,7 @@ function createShooterBubble() {
 // Create the next bubble
 function createNextBubble() {
   nextBubble = {
-    color: COLOURS[Math.floor(Math.random() * COLOURS.length)],
+    colour: COLOURS[Math.floor(Math.random() * COLOURS.length)],
   };
 }
 
@@ -202,7 +202,7 @@ function snapToGrid() {
       x: offsetX + closestCol * bubbleSpacing + rowOffset,
       y: GRID_TOP_MARGIN + closestRow * bubbleSpacing,
       radius: BUBBLE_RADIUS,
-      color: shooterBubble.color,
+      colour: shooterBubble.colour,
       row: closestRow,
       col: closestCol,
     };
@@ -241,7 +241,7 @@ function snapToGrid() {
     x: canvas.width / 2,
     y: canvas.height - CANNON_HEIGHT - BUBBLE_RADIUS,
     radius: BUBBLE_RADIUS,
-    color: nextBubble.color,
+    colour: nextBubble.colour,
     velocityX: 0,
     velocityY: 0,
     moving: false,
@@ -254,7 +254,7 @@ function snapToGrid() {
   bubbleMoving = false;
 }
 
-// Find matching bubbles of the same color
+// Find matching bubbles of the same colour
 function findMatches(bubble) {
   const matches = [bubble];
   const checked = new Set();
@@ -269,7 +269,7 @@ function findMatches(bubble) {
 
     // Check each neighbour
     for (const neighbour of neighbours) {
-      if (neighbour.color === bubble.color) {
+      if (neighbour.colour === bubble.colour) {
         matches.push(neighbour);
         checkNeighbours(neighbour);
       }
@@ -498,7 +498,7 @@ function drawAimLine() {
 function drawBubble(bubble) {
   ctx.beginPath();
   ctx.arc(bubble.x, bubble.y, bubble.radius, 0, Math.PI * 2);
-  ctx.fillStyle = bubble.color;
+  ctx.fillStyle = bubble.colour;
   ctx.fill();
 
   // Add highlight
@@ -535,7 +535,7 @@ function drawNextBubble() {
   // Draw bubble
   ctx.beginPath();
   ctx.arc(x, y, BUBBLE_RADIUS * 0.8, 0, Math.PI * 2);
-  ctx.fillStyle = nextBubble.color;
+  ctx.fillStyle = nextBubble.colour;
   ctx.fill();
 
   // Add highlight
