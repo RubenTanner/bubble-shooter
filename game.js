@@ -1,5 +1,5 @@
 // Game constants
-const COLORS = ["#FF47C7", "#47F9FF", "#FFDD47", "#47FF8D", "#FF6B47"];
+const COLOURS = ["#FF47C7", "#47F9FF", "#FFDD47", "#47FF8D", "#FF6B47"];
 const BUBBLE_RADIUS = 20;
 const GRID_ROWS = 8;
 const GRID_COLS = 12;
@@ -72,7 +72,7 @@ function initBubbleGrid() {
           x: offsetX + col * bubbleSpacing + rowOffset,
           y: GRID_TOP_MARGIN + row * bubbleSpacing,
           radius: BUBBLE_RADIUS,
-          color: COLORS[Math.floor(Math.random() * COLORS.length)],
+          color: COLOURS[Math.floor(Math.random() * COLOURS.length)],
           row: row,
           col: col,
         };
@@ -88,7 +88,6 @@ function createShooterBubble() {
     x: canvas.width / 2,
     y: canvas.height - CANNON_HEIGHT - BUBBLE_RADIUS,
     radius: BUBBLE_RADIUS,
-    color: COLORS[Math.floor(Math.random() * COLORS.length)],
     velocityX: 0,
     velocityY: 0,
     moving: false,
@@ -98,7 +97,7 @@ function createShooterBubble() {
 // Create the next bubble
 function createNextBubble() {
   nextBubble = {
-    color: COLORS[Math.floor(Math.random() * COLORS.length)],
+    color: COLOURS[Math.floor(Math.random() * COLOURS.length)],
   };
 }
 
