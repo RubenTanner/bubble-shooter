@@ -7,7 +7,7 @@ const GRID_TOP_MARGIN = 40;
 const CANNON_HEIGHT = 60;
 const CANNON_WIDTH = 40;
 const SHOOT_SPEED = 10;
-const MATCH_COUNT = 3;
+const MATCH_COUNT = 4;
 
 // Game variables
 let canvas, ctx;
