@@ -88,6 +88,7 @@ function createShooterBubble() {
     x: canvas.width / 2,
     y: canvas.height - CANNON_HEIGHT - BUBBLE_RADIUS,
     radius: BUBBLE_RADIUS,
+    color: COLOURS[Math.floor(Math.random() * COLOURS.length)],
     velocityX: 0,
     velocityY: 0,
     moving: false,
