@@ -527,7 +527,7 @@ function drawNextBubble() {
   const y = canvas.height - 50;
 
   // Draw label
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = "#FFFF";
   ctx.font = '10px "Press Start 2P"';
   ctx.textAlign = "right";
   ctx.fillText("NEXT:", x - 20, y - 5);
@@ -600,7 +600,7 @@ function drawGameOver() {
   ctx.textAlign = "center";
   ctx.fillText("GAME OVER", canvas.width / 2, canvas.height / 2 - 20);
 
-  ctx.fillStyle = "#ffffff";
+  ctx.fillStyle = "#FFFF";
   ctx.font = '16px "Press Start 2P"';
   ctx.fillText(
     `FINAL SCORE: ${score}`,
