@@ -407,7 +407,7 @@ function draw() {
 function drawBackgroundGrid() {
   ctx.save();
   ctx.globalAlpha = 0.1;
-  ctx.strokeStyle = "#ffffff";
+  ctx.strokeStyle = "#FFFF";
 
   const gridSize = 20;
 
