@@ -388,6 +388,9 @@ function draw() {
   // Draw shooter bubble
   drawBubble(shooterBubble);
 
+  //draw aim line
+  drawAimLine();
+
   // Draw next bubble preview
   drawNextBubble();
 
