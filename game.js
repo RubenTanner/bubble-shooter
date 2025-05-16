@@ -259,30 +259,30 @@ function findMatches(bubble) {
   const matches = [bubble];
   const checked = new Set();
 
-  function checkNeighbors(currentBubble) {
+  function checkNeighbours(currentBubble) {
     const key = `${currentBubble.row},${currentBubble.col}`;
     if (checked.has(key)) return;
     checked.add(key);
 
-    // Get neighbors
-    const neighbors = getNeighbors(currentBubble);
+    // Get neighbours
+    const neighbours = getNeighbours(currentBubble);
 
     // Check each neighbour
-    for (const neighbour of neighbors) {
+    for (const neighbour of neighbours) {
       if (neighbour.color === bubble.color) {
         matches.push(neighbour);
-        checkNeighbors(neighbour);
+        checkNeighbours(neighbour);
       }
     }
   }
 
-  checkNeighbors(bubble);
+  checkNeighbours(bubble);
   return matches;
 }
 
 // Get neighbouring bubbles
-function getNeighbors(bubble) {
-  const neighbors = [];
+function getNeighbours(bubble) {
+  const neighbours = [];
   const directions =
     bubble.row % 2 === 0
       ? [
@@ -312,7 +312,7 @@ function getNeighbors(bubble) {
     );
 
     if (neighbour) {
-      neighbors.push(neighbour);
+      neighbours.push(neighbour);
     }
   }
 
@@ -364,7 +364,7 @@ function markConnected(bubble, visited) {
   visited.add(key);
 
   // Get neighbours
-  const neighbors = getNeighbors(bubble);
+  const neighbours = getNeighbours(bubble);
 
   // Mark each neighbour as connected
   for (const neighbour of neighbours) {
